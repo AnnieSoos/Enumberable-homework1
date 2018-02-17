@@ -1,7 +1,7 @@
 # main.rb
 require 'json'
 
-class Ass1
+
    def read_contacts
      contacts_json = File.read("contacts.json")
      return JSON.parse(contacts_json, { symbolize_names: true })
@@ -12,7 +12,15 @@ class Ass1
      puts "{ #{name} => #{phone} }"
    end
 
-end
+
+
+#running methods
+read_contacts
+
+data_map
+
+
+
 
 #1 Create a method, that uses map on your contact data, so the output
 #is an array that holds, per contact,
