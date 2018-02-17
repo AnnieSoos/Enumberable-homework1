@@ -13,7 +13,7 @@ require 'json'
      contact.map do |name, phone|
      puts "#{contact[:name].to_s}"
      puts "phone: #{contact[:phone].to_s}"
-   end 
+   end
    end
    end
    #(1..4).map { |i| i*i }
@@ -34,12 +34,9 @@ require 'json'
    end
 
 #running methods
-loop do
+
   contacts=read_contacts
   index(contacts)
-
-
-end
 
 
 
