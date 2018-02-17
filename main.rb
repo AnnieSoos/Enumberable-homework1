@@ -7,17 +7,37 @@ require 'json'
      return JSON.parse(contacts_json, { symbolize_names: true })
    end
 
+=begin
+   def maps(contacts)
+     contacts.each_with_index do |contact, index|
+       puts "#{index + 1}) #{contact[:name]}"
+     end
+   end
+=end 
+
+   def show(contact)
+     puts contact[:name].to_s
+     puts "phone: #{contact[:phone]}"
+     puts "email: #{contact[:email]}"
+   end
+=begin
    def data_map
-     contacts_json.map{ |name, phone| { name => phone}}
+     JSON.map{ |name, phone| { name => phone}}
      puts "{ #{name} => #{phone} }"
    end
-
-
+=end
+   def write_contacts(contacts)
+     File.open("contacts.json", "w") do |file|
+       json = JSON.pretty_generate(contacts)
+       file.write(json)
+     end
+   end
 
 #running methods
-read_contacts
+loop do
+  contacts=read_contacts
 
-data_map
+end
 
 
 
@@ -33,7 +53,7 @@ data_map
 #.filter
 # .reduce
 
-data_map
+
 =begin
 puts "Contact for #{contacts[id - 1][:name]} deleted."
 
