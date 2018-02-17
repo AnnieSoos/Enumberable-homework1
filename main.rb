@@ -7,19 +7,19 @@ require 'json'
      return JSON.parse(contacts_json, { symbolize_names: true })
    end
 
-=begin
-   def maps(contacts)
-     contacts.each_with_index do |contact, index|
-       puts "#{index + 1}) #{contact[:name]}"
-     end
-   end
-=end 
 
-   def show(contact)
-     puts contact[:name].to_s
-     puts "phone: #{contact[:phone]}"
-     puts "email: #{contact[:email]}"
+   def index(contacts)
+     contacts.each do |contact|
+     contact.map do |name, phone|
+     puts "#{contact[:name].to_s}"
+     puts "phone: #{contact[:phone].to_s}"
+   end 
    end
+   end
+   #(1..4).map { |i| i*i }
+   # x.hmap{ |k,v| { k.to_sym => v.to_s  } }
+
+
 =begin
    def data_map
      JSON.map{ |name, phone| { name => phone}}
@@ -36,6 +36,8 @@ require 'json'
 #running methods
 loop do
   contacts=read_contacts
+  index(contacts)
+
 
 end
 
