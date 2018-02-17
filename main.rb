@@ -8,24 +8,11 @@ require 'json'
    end
 
 
-   def index(contacts)
-     contacts.each do |contact|
-     contact.map do |name, phone|
-     puts "#{contact[:name].to_s}"
-     puts "phone: #{contact[:phone].to_s}"
-   end
-   end
-   end
-   #(1..4).map { |i| i*i }
-   # x.hmap{ |k,v| { k.to_sym => v.to_s  } }
+  def index(contacts)
+  contacts.map do |contact| puts "{#{contact[:name]} => #{contact[:phone]}}"
+  #contacts.each {|contact| puts "{#{contact[:name]} => #{contact[:phone]}}"}
+              end
 
-
-=begin
-   def data_map
-     JSON.map{ |name, phone| { name => phone}}
-     puts "{ #{name} => #{phone} }"
-   end
-=end
    def write_contacts(contacts)
      File.open("contacts.json", "w") do |file|
        json = JSON.pretty_generate(contacts)
@@ -33,8 +20,17 @@ require 'json'
      end
    end
 
-#running methods
+  def select_concact(contacts)
+      if choices=true
+        choices = contacts.select {|contact| contact[:phone]value.to_s == ("+1")}
+        puts choices
+      end
+array.find {|x| x[:name] == "Hitesh"}
+  end
 
+  end
+#running methods
+end
   contacts=read_contacts
   index(contacts)
 
@@ -82,11 +78,27 @@ def amount_of_string_characters_in_a_test_array
     # - The second block argument is the element in the array we
     # are iterating over.
     #
-    # NOTE: These comments should NOT show up in your final homework...
+    # : These comments should NOT show up in your final homework...
 
     sum += element.length
   end
 end
 
 amount_of_string_characters_in_a_test_array # => 16
+=end
+
+=begin
+✍️ 2.1 Create a method that returns a sub-collection of contacts,
+whose phone contain the string +1.
+
+Print the result to the terminal.
+✍️ 2.2 Create a method that returns a collection of contacts,
+whose email address contain the string .org
+=end
+
+=begin
+3.1 Create another method that uses reduce that returns how many contacts
+have a phone that contains the string "+1" .
+You
+will use the method of assignment 2.1.
 =end
