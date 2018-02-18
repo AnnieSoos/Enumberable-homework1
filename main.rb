@@ -1,6 +1,11 @@
 # main.rb
 require 'json'
 
+#attr_accessor :contacts
+
+#def initialize(contacts)
+#@contacts=[]
+#end
 
    def read_contacts
      contacts_json = File.read("contacts.json")
@@ -20,19 +25,25 @@ require 'json'
      end
    end
 
-  def select_concact(contacts)
-      if choices=true
-        choices = contacts.select {|contact| contact[:phone]value.to_s == ("+1")}
-        puts choices
+  def select_contact(contacts)
+          if contacts.select do |contact| contact[:phone].include? "+1 "
+          contacts.map do |contact| contact[:name] contact[:phone].include? "+1"
+end
       end
-array.find {|x| x[:name] == "Hitesh"}
+        end
   end
-
+#result = hash.keys.find {|k| k.include? number}
   end
 #running methods
-end
   contacts=read_contacts
   index(contacts)
+
+  puts "............."
+  puts
+  puts "............."
+  select_contact(contacts)
+
+
 
 
 
