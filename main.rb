@@ -15,7 +15,6 @@ require 'json'
 
   def index(contacts)
   contacts.map do |contact| puts "{#{contact[:name]} => #{contact[:phone]}}"
-  #contacts.each {|contact| puts "{#{contact[:name]} => #{contact[:phone]}}"}
               end
 
    def write_contacts(contacts)
@@ -26,12 +25,11 @@ require 'json'
    end
 
   def select_contact(contacts)
-          if contacts.select do |contact| contact[:phone].include? "+1 "
-          contacts.map do |contact| contact[:name] contact[:phone].include? "+1"
-end
-      end
-        end
+    contacts.select{|contact| contact[:phone].include? "+1"==true puts "#{contact[:name]} => #{contact[:phone]}"}
   end
+
+
+
 #result = hash.keys.find {|k| k.include? number}
   end
 #running methods
@@ -44,16 +42,11 @@ end
   select_contact(contacts)
 
 
-
-
-
-
 #1 Create a method, that uses map on your contact data, so the output
 #is an array that holds, per contact,
 #a hash with the name of the contact as the key,
 #and the phone of the contact as the value.
-#(1..4).map { |i| i*i }      #=> [1, 4, 9, 16]
-# x.hmap{ |k,v| { k.to_sym => v.to_s  } }
+
 #.collect, same as .map
 #.find, same as .detect
 #.filter
